@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="acco">
+
+	<!-- 등록 -->
+	<insert id="insert" parameterType="accoVO">
+	insert into accommodation
+	values (null, #{img}, #{address}, #{latitude}, #{longtitude},
+	#{category}, #{checkin},
+	#{checkout}, #{park}, #{etc}, #{website}, #{name})
+	</insert>
+
+	<!-- 검색 -->
+	<select id="one" parameterType="accoVO" resultType="accoVO">
+		select num,
+		name, address from accommodation where name = #{name}
+	</select>
+
+	<!-- 수정 -->
+	<update id="update" parameterType="accoVO">
+		update accommodation
+		set
+		img = #{img}, address = #{address},<!--  latitude = #{latitude},
+		longtitude
+		= #{longtitude}, --> category = #{category}, checkin =
+		#{checkin}, checkout =
+		#{checkout},
+		park = #{park}, etc = #{etc}, website = #{website}, name = #{name}
+		where num = #{num}
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="accoVO">
+		delete from accommodation
+		where num = #{num}
+	</delete>
+
+</mapper>

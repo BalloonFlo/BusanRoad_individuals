@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rest">
+
+	<!-- 등록 -->
+	<insert id="insert" parameterType="restVO">
+		insert into restaurant
+		values
+		(null, #{img}, #{address}, #{latitude}, #{longtitude},
+		#{category},
+		#{off}, #{time}, #{park}, #{menu}, #{name})
+	</insert>
+
+	<!-- 검색 -->
+	<select id="one" parameterType="restVO" resultType="restVO">
+		select num,
+		name, address from restaurant where name = #{name}
+	</select>
+
+	<!-- 수정 -->
+	<update id="update" parameterType="restVO">
+		update restaurant
+		set
+		img = #{img}, address = #{address},<!-- latitude = 
+			#{latitude}, longtitude = #{longtitude}, -->
+		category = #{category}, content =
+		#{content}, off =
+		#{off}, time =
+		#{time}, park = #{park}, menu = #{menu}, name = #{name}
+		where num =
+		#{num}
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="restVO">
+		delete from restaurant
+		where
+		num = #{num}
+	</delete>
+
+</mapper>

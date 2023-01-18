@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tour">
+
+	<!-- 등록 -->
+	<insert id="insert" parameterType="tourVO">
+	insert into touristdestination
+	values (null, #{img}, #{address}, #{latitude}, #{longtitude},
+	#{category}, #{content},
+	#{off}, #{park}, #{name})
+	</insert>
+
+	<!-- 검색 -->
+	<select id="one" parameterType="tourVO" resultType="tourVO">
+		select num,
+		name, address from touristdestination where name = #{name}
+	</select>
+
+	<!-- 수정 -->
+	<update id="update" parameterType="tourVO">
+		update touristdestination
+		set
+		img = #{img}, address = #{address},<!--  latitude = #{latitude},
+		longtitude
+		= #{longtitude}, --> category = #{category}, content =
+		#{content}, off =
+		#{off},
+		park = #{park}, name = #{name}
+		where num = #{num}
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="tourVO">
+		delete from touristdestination
+		where num = #{num}
+	</delete>
+
+</mapper>
