@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="beach">
+	<select id="all" resultType="beachVO">
+		select * from beach
+	</select>
+	<select id="one" parameterType="beachVO" resultType="beachVO">
+		select * from beach where name = #{name}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
